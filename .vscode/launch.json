@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:Loom}",
+            "name": "Debug LoomCLI",
+            "program": "${workspaceFolder:Loom}/.build/debug/LoomCLI",
+            "preLaunchTask": "swift: Build Debug LoomCLI"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:Loom}",
+            "name": "Release LoomCLI",
+            "program": "${workspaceFolder:Loom}/.build/release/LoomCLI",
+            "preLaunchTask": "swift: Build Release LoomCLI"
+        }
+    ]
+}
