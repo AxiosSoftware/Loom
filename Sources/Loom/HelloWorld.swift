@@ -1,9 +1,9 @@
-public struct HelloWorld: HTML {
+public struct HelloWorld: HTMLElement {
 
     public init() { }
 
-    public var body: some HTML {
-        Document {
+    public var body: some HTMLElement {
+        HTML {
             Text("Hello World")
         }
     }

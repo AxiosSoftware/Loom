@@ -1,11 +1,11 @@
-public struct Text: HTML {
+public struct Text: HTMLElement {
     let content: String 
 
     public init(_ content: String) {
         self.content = content
     }
 
-    public var body: some HTML {
+    public var body: some HTMLElement {
         content
     }
 }
