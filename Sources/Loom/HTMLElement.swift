@@ -22,6 +22,7 @@ extension HTMLElement {
         if let tag = HTMLTag(rawValue: type) {
             return tag.wrap(content: body)
         } else {
+            print("\(body)")
             return body as? String ?? ""
         }
     }
@@ -57,7 +58,7 @@ private func staticType<T>(of: T) -> String {
 
 // Modifier protocol
 public protocol HTMLModifier {
-    @MainActor func modify(_ content: String) -> String
+    @MainActor func modify(_ content: any HTMLElement) -> String
 }
 
 // Modified element type
@@ -66,11 +67,7 @@ public struct ModifiedElement<Content: HTMLElement, Modifier: HTMLModifier>: HTM
     let modifier: Modifier
     
     public var body: some HTMLElement {
-        self
-    }
-    
-    @MainActor public var render: String {
-        return modifier.modify(content.render)
+        modifier.modify(content.body)
     }
 }
 
@@ -79,7 +76,11 @@ public struct AttributeModifier: HTMLModifier {
     let attribute: String
     let value: String
     
-    @MainActor public func modify(_ content: String) -> String {
+    @MainActor public func modify(_ content: any HTMLElement) -> String {
+        guard let content = content as? String else {
+            print("no content to modify") 
+            return ""
+        }
         // Simple implementation - inject attribute before closing bracket of first tag
         let regex = Regex {
             "<"

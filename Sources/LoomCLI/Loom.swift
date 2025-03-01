@@ -22,7 +22,7 @@ struct HelloWorld: HTMLElement {
         HTML {
             Header {
                 Text("Loom")
-                .class("Testing")
+                .class("HeaderClass")
             }
         }
     }
