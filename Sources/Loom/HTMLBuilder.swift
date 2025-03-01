@@ -8,8 +8,8 @@ public enum HTMLBuilder {
         return mapped
     }
     
-    public static func buildBlock<C: HTMLElement>(_ content: C) -> String {
-        content.render
+    public static func buildBlock(_ content: any HTMLElement) -> any HTMLElement {
+        content.body
     }
 
     public static func buildBlock(_ components: any HTMLElement...) -> String {

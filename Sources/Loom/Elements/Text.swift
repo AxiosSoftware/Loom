@@ -6,6 +6,6 @@ public struct Text: HTMLElement {
     }
 
     public var body: some HTMLElement {
-        content
+        "<p>\(content)</p>"
     }
 }

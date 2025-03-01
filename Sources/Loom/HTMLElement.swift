@@ -115,6 +115,6 @@ public struct AttributeModifier: HTMLModifier {
             print("Content: \(content)")
             print("Closing Tag: \(closingTag)")
         }
-        return content
+        return 
     }
 }
